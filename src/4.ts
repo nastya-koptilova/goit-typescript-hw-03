@@ -5,7 +5,7 @@ class Key {
     this.signature = Math.random();
   }
 
-  getSignature() {
+  getSignature(): number {
     return this.signature;
   }
 }
@@ -15,21 +15,21 @@ class Person {
   constructor(key: Key) {
     this.key = key;
   }
-  getKey() {
+  getKey(): Key {
     return this.key;
   }
 }
 
 abstract class House {
-  door: boolean = false;
-  key: Key;
-  tenants: Person[] = [];
+  public door: boolean = false;
+  public key: Key;
+  private tenants: Person[] = [];
 
   constructor(key: Key) {
     this.key = key;
   }
 
-  comeIn(person: Person) {
+  comeIn(person: Person): void {
     if (this.door) {
       this.tenants.push(person);
     }
